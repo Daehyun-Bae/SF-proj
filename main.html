@@ -7,14 +7,27 @@
     <link href="css/bootstrap-theme.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-    <!--JavaScript-->
+    <!--JavaScript-->    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
-    <title>test</title>
+    <title>Smart Car Factory</title>
 </head>
 <body>
 <!-- Static navbar -->
+    <div id="sideNav" class="text-center sideNav">
+        
+            <a href="javascript:void(0)" class="closebtn" onclick="closeSide()"><i class="fa fa-close fa-2x"></i></a>
+        <div class="hidden-xs">
+            <a href="#">My Info</a>
+            <a href="#">Reservation</a>
+            <a href="#">Menu3</a>
+        </div>
+        <div class="visible-xs">
+            <a href="#"><i class="fa fa-cog fa-2x"></i> </a>
+            <a href="#"><i class="fa fa-calendar fa-2x"></i></a>
+            <a href="#"><i class="fa fa-list fa-2x"></i></a>
+        </div>
+    </div>
     <nav class="navbar">
       <div id="home" class="container-fluid">
         <div class="navbar-header">
@@ -24,11 +37,19 @@
           <a class="navbar-hover navbar-brand" href="#">SMART CAR FACTORY</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Book</a></li>
-            <li><a href="#contact">Contact</a></li>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" v-if="!logIn" class="navbar-hover">
+                <i class="fa fa-sign-in"></i> Sign in</a>
+            </li>
+            <li><a onclick="openSide()" v-if="logIn" class="navbar-hover">
+                    {{name}} 님
+                </a>
+            </li>
+          </ul>
+            <ul class="nav navbar-nav">
+            <li class="active"><a class="navbar-hover" href="#home">Home</a></li>
+            <li><a class="navbar-hover" href="#about">About</a></li>
+            <li><a class="navbar-hover" href="#contact">Book</a></li>
             <!--
               <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -44,13 +65,7 @@
             </li>
             -->
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" class="navbar-hover">
-                <i class="fa fa-sign-in"></i> Sign in</a>
-            </li>
-            <li><a href="#" class="navbar-hover">
-                <i class="fa fa-lock"></i> Admin</a></li>
-          </ul>
+          
         </div>
       </div>
     </nav>
@@ -155,5 +170,8 @@
             </div>
         </div>
     </footer>
-</body>
+    
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="js/vue-nav.js"></script>
+    </body>
 </html>
